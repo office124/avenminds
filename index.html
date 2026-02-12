@@ -6,129 +6,496 @@
 	<meta name="description" content="WebUni Education Template">
 	<meta name="keywords" content="webuni, education, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
 	<link href="img/favicon.ico" rel="shortcut icon"/>
 
+	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
 
+	<!-- Stylesheets -->
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
 </head>
 <body>
-
-<!-- Page Preloder -->
-<div id="preloder">
-	<div class="loader"></div>
-</div>
-
-<!-- Header -->
-<header class="header-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-3">
-				<div class="site-logo">
-					<img src="img/logo.png" alt="">
-				</div>
-				<div class="nav-switch">
-					<i class="fa fa-bars"></i>
-				</div>
-			</div>
-			<div class="col-lg-9 col-md-9">
-				<a href="" class="site-btn header-btn">Login</a>
-				<nav class="main-menu">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about.html">About us</a></li>
-						<li><a href="courses.html">Courses</a></li>
-						<li><a href="blog.html">News</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
 	</div>
-</header>
 
-<!-- Hero -->
-<section class="hero-section set-bg" data-setbg="img/bg.jpg">
-	<div class="container">
-		<div class="hero-text text-white">
-			<h2>Next-Gen Learning Today</h2>
-			<p>"Adaptive, interest-driven learning experiences empowering learners at every stage to build their future with clarity and purpose."</p>
-		</div>
-		<div class="row">
-			<div class="col-lg-10 offset-lg-1">
-
-<form id="leadForm" novalidate>
-	<input type="text" id="name" placeholder="Name">
-	<input type="email" id="email" class="last-s" placeholder="E-mail">
-	<button type="button" id="signupBtn">Sign Up</button>
-</form>
-
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Signup Section -->
-<section class="signup-section spad">
-	<div class="signup-bg set-bg" data-setbg="img/signup-bg.jpg"></div>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="signup-warp">
-					<div class="section-title text-white text-left">
-						<h2>Sign up to became a teacher</h2>
-						<p>Join our teaching community and share your expertise while inspiring the next generation of learners.</p>
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3">
+					<div class="site-logo">
+						<img src="img/logo.png" alt="">
 					</div>
-					<form class="signup-form">
-						<input type="text" placeholder="Your Name">
-						<input type="text" placeholder="Your E-mail">
-						<input type="text" placeholder="Your Phone">
-						<label for="v-upload" class="file-up-btn">Upload Course</label>
-						<input type="file" id="v-upload">
-						<button class="site-btn">Search Couse</button>
-					</form>
+					<div class="nav-switch">
+						<i class="fa fa-bars"></i>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-9">
+					<a href="" class="site-btn header-btn">Login</a>
+					<nav class="main-menu">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About us</a></li>
+							<li><a href="courses.html">Courses</a></li>
+							<li><a href="blog.html">News</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</header>
+	<!-- Header section end -->
 
-<!-- Scripts -->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/mixitup.min.js"></script>
-<script src="js/circle-progress.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/main.js"></script>
 
-<!-- FIXED SIGNUP SCRIPT -->
-<script>
-document.getElementById("signupBtn").addEventListener("click", function () {
+	<!-- Hero section -->
+	<section class="hero-section set-bg" data-setbg="img/bg.jpg">
+		<div class="container">
+			<div class="hero-text text-white">
+				<h2>Next-Gen Learning Today</h2>
+				<p>"Adaptive, interest-driven learning experiences empowering learners at every stage to build their future with clarity and purpose."</p>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+<form id="leadForm">
+  <input type="text" id="name" placeholder="Name" required>
+  <input type="email" id="email" class="last-s" placeholder="E-mail" required>
+  <button type="submit">Sign Up</button>
+</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
 
-	const name = document.getElementById("name").value.trim();
-	const email = document.getElementById("email").value.trim();
 
-	if (!name || !email) {
-		alert("Name and Email are mandatory.");
-		return;
-	}
+	<!-- categories section -->
+	<section class="categories-section spad">
+		<div class="container">
+			<div class="section-title">
+				<h2>Our Course Categories</h2>
+				<p>Explore a wide range of thoughtfully designed course categories, each crafted to help learners build relevant skills, deepen knowledge, and progress confidently toward their goals.</p>
+			</div>
+			<div class="row">
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="img/Frontend.png"></div>
+						<div class="ci-text">
+							<h5>Frontend Development</h5>
+							<p>Industry-oriented IT courses designed to build practical skills and career readiness.</p>
+							<span>120 Topics</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="img/Webdesign.png"></div>
+						<div class="ci-text">
+							<h5>Web Design</h5>
+							<p>Modern web design solutions crafted for performance, usability, and visual appeal.</p>
+							<span>70 Topics</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="img/Android.png"></div>
+						<div class="ci-text">
+							<h5>Android & Application Development</h5>
+							<p>Scalable Android and application development tailored for performance, security, and growth.</p>
+							<span>55 Topics</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="img/Cloud.png"></div>
+						<div class="ci-text">
+							<h5>Cloud Computing</h5>
+							<p>Cloud services that help you store, manage, and scale your business efficiently.</p>
+							<span>40 Topics</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="img/Blockchain.png"></div>
+						<div class="ci-text">
+							<h5>Blockchain Development</h5>
+							<p>Secure and decentralized blockchain solutions built for transparency and trust.</p>
+							<span>220 Topics</span>
+						</div>
+					</div>
+				</div>
+				<!-- categorie -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="img/IOT.png"></div>
+						<div class="ci-text">
+							<h5>Internet of Things (IoT)</h5>
+							<p>Intelligent IoT solutions that connect devices, data, and systems seamlessly.</p>
+							<span>25 Topics</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- categories section end -->
 
-	// Fill teacher signup form
-	const signupInputs = document.querySelectorAll(".signup-form input");
 
-	signupInputs[0].value = name;
-	signupInputs[1].value = email;
+	<!-- search section -->
+	<section class="search-section">
+		<div class="container">
+			<div class="search-warp">
+				<div class="section-title text-white">
+					<h2>Search your course</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+						<!-- search form -->
+						<form class="course-search-form">
+							<input type="text" placeholder="Course">
+							<input type="text" class="last-m" placeholder="Category">
+							<button class="site-btn">Search Couse</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- search section end -->
 
-	// Scroll smoothly
-	document.querySelector(".signup-section").scrollIntoView({
-		behavior: "smooth",
-		block: "start"
-	});
-});
+
+	<!-- course section -->
+	<section class="course-section spad">
+		<div class="container">
+			<div class="section-title mb-0">
+				<h2>Featured Courses</h2>
+				<p>Handpicked courses that combine quality learning, hands-on practice, and career growth.</p>
+			</div>
+		</div>
+		<div class="course-warp">
+			<ul class="course-filter controls">
+				<li class="control active" data-filter="all">All</li>
+				<li class="control" data-filter=".finance">Finance</li>
+				<li class="control" data-filter=".design">Design</li>
+				<li class="control" data-filter=".web">Web Development</li>
+				<li class="control" data-filter=".photo">Photography</li>
+			</ul>                                       
+			<div class="row course-items-area">
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+					<div class="course-item">
+						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
+							<div class="price">Price: $15</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>Network Administration </h5>
+								<p>Learn to manage, monitor, and maintain modern computer networks effectively.</p>
+								<div class="students">120 Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="img/authors/1.jpg"></div>
+								<p>Kishore Anandan, <span>Developer</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 design">
+					<div class="course-item">
+						<div class="course-thumb set-bg" data-setbg="img/courses/2.jpg">
+							<div class="price">Price: $15</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>IT Development</h5>
+								<p>SAP (Various Modules)</p>
+								<div class="students">120 Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="img/authors/2.jpg"></div>
+								<p>Kishore Anandan, <span>Developer</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 web">
+					<div class="course-item">
+						<div class="course-thumb set-bg" data-setbg="img/courses/3.jpg">
+							<div class="price">Price: $15</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>Graphic Design</h5>
+								<p>Visual designs that bring brands, stories, and ideas to life.</p>
+								<div class="students">120 Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="img/authors/3.jpg"></div>
+								<p>Kishore Anandan, <span>Developer</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+					<div class="course-item">
+						<div class="course-thumb set-bg" data-setbg="img/courses/4.jpg">
+							<div class="price">Price: $15</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>Software Testing & QA</h5>
+								<p>Learn manual and automation testing with real-time projects and industry best practices.</p>
+								<div class="students">120 Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="img/authors/4.jpg"></div>
+								<p>Kishore Anandan, <span>Developer</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+					<div class="course-item">
+						<div class="course-thumb set-bg" data-setbg="img/courses/5.jpg">
+							<div class="price">Price: $15</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>AR/VR Development</h5>
+								<p>Immersive AR and VR solutions designed to create engaging and interactive digital experiences.</p>
+								<div class="students">120 Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="img/authors/5.jpg"></div>
+								<p>Kishore Anandan, <span>Developer</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 design">
+					<div class="course-item">
+						<div class="course-thumb set-bg" data-setbg="img/courses/6.jpg">
+							<div class="price">Price: $15</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>Socia Media</h5>
+								<p>Learn social media management, content strategy, and platform growth techniques.</p>
+								<div class="students">120 Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="img/authors/6.jpg"></div>
+								<p>Kishore Anandan, <span>Developer</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 web">
+					<div class="course-item">
+						<div class="course-thumb set-bg" data-setbg="img/courses/7.jpg">
+							<div class="price">Price: $15</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>Cooud Security</h5>
+								<p>Advanced cloud security solutions to protect data, applications, and infrastructure.</p>
+								<div class="students">120 Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="img/authors/7.jpg"></div>
+								<p>Kishore Anandan, <span>Developer</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+					<div class="course-item">
+						<div class="course-thumb set-bg" data-setbg="img/courses/8.jpg">
+							<div class="price">Price: $15</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5>Ethical AI & Respoonsible Tech</h5>
+								<p>Ethical AI solutions designed to ensure fairness, transparency, and accountability in technology.</p>
+								<div class="students">120 Students</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="img/authors/8.jpg"></div>
+								<p>Kishore Anandan, <span>Developer</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- course section end -->
+
+
+	<!-- signup section -->
+	<section class="signup-section spad">
+		<div class="signup-bg set-bg" data-setbg="img/signup-bg.jpg"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="signup-warp">
+						<div class="section-title text-white text-left">
+							<h2>Sign up to became a teacher</h2>
+							<p>Join our teaching community and share your expertise while inspiring the next generation of learners.</p>
+						</div>
+						<!-- signup form -->
+						<form class="signup-form">
+							<input type="text" placeholder="Your Name">
+							<input type="text" placeholder="Your E-mail">
+							<input type="text" placeholder="Your Phone">
+							<label for="v-upload" class="file-up-btn">Upload Course</label>
+							<input type="file" id="v-upload">
+							<button class="site-btn">Search Couse</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- signup section end -->
+
+
+	<!-- banner section -->
+	<section class="banner-section spad">
+		<div class="container">
+			<div class="section-title mb-0 pb-2">
+				<h2>Join Our Community Now!</h2>
+				<p>Join a network of learners and professionals sharing knowledge and opportunities.</p>
+			</div>
+			<div class="text-center pt-5">
+				<a href="#" class="site-btn">Register Now</a>
+			</div>
+		</div>
+	</section>
+	<!-- banner section end -->
+
+
+	<!-- footer section -->
+	<footer class="footer-section spad pb-0">
+		<div class="footer-top">
+			<div class="footer-warp">
+				<div class="row">
+					<div class="widget-item">
+						<h4>Contact Info</h4>
+						<ul class="contact-list">
+							<li>1/101, Kavarai Street, Latteri<br>Vellore</li>
+							<li>+91-8248802124</li>
+							<li>office@avenminds.com</li>
+						</ul>
+					</div>
+					<div class="widget-item">
+						<h4>Engeneering</h4>
+						<ul>
+							<li><a href="">Applied Studies</a></li>
+							<li><a href="">Computer Engeneering</a></li>
+							<li><a href="">Software Engeneering</a></li>
+							<li><a href="">Informational Engeneering</a></li>
+							<li><a href="">System Engeneering</a></li>
+						</ul>
+					</div>
+					<div class="widget-item">
+						<h4>Programming</h4>
+						<ul>
+							<li><a href="">Phython Programmingies</a></li>
+							<li><a href="">Java Programming</a></li>
+							<li><a href="">C/C++ Programming</a></li>
+							<li><a href="">SQL/NoSQL Database</a></li>
+							<li><a href="">Network Administration</a></li>
+						</ul>
+					</div>
+					<div class="widget-item">
+						<h4>Non-IT & Business</h4>
+						<ul>
+							<li><a href="">Human Resources</a></li>
+							<li><a href="">Marketing & Sales</a></li>
+							<li><a href="">Accounts & Finance</a></li>
+							<li><a href="">Supply Chain & Logistics</a></li>
+							<li><a href="">Photography & Videography</a></li>
+						</ul>
+					</div>
+					<div class="widget-item">
+						<h4>Newsletter</h4>
+						<form class="footer-newslatter">
+							<input type="email" placeholder="E-mail">
+							<button class="site-btn">Subscribe</button>
+							<p>*No noise. Just value.</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="footer-warp">
+				<ul class="footer-menu">
+					<li><a href="#">Terms & Conditions</a></li>
+					<li><a href="#">Register</a></li>
+					<li><a href="#">Privacy</a></li>
+				</ul>
+				<div class="copyright"><a target="_blank" href="https://www.templateshub.net">© 2026 AvenMinds. All rights reserved.</a></div>
+			</div>
+		</div>
+	</footer> 
+	<!-- footer section end -->
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/mixitup.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+  document.getElementById("leadForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Stop default redirect
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+
+    if (name === "" || email === "") {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    // Store in localStorage
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+
+    // Redirect to signup page
+    window.location.href = "signup.html";
+  });
 </script>
-
-</body>
 </html>
