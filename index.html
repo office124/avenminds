@@ -70,10 +70,10 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
-<form action="#" method="post">
-  <input type="text" name="name" placeholder="Name" required>
-  <input type="email" name="email" class="last-s" placeholder="E-mail" required>
-  <button type="submit">Submit</button>
+<form id="leadForm">
+  <input type="text" id="name" placeholder="Name" required>
+  <input type="email" id="email" class="last-s" placeholder="E-mail" required>
+  <button type="submit">Sign Up</button>
 </form>
 				</div>
 			</div>
@@ -478,4 +478,24 @@
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+  document.getElementById("leadForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Stop default redirect
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+
+    if (name === "" || email === "") {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    // Store in localStorage
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+
+    // Redirect to signup page
+    window.location.href = "signup.html";
+  });
+</script>
 </html>
