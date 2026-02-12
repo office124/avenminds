@@ -156,6 +156,23 @@
 	function sendPhoneOTP() {
 		alert("Phone OTP API will be connected here");
 	}
+	<script>
+  window.onload = function() {
+    let name = localStorage.getItem("userName");
+    let email = localStorage.getItem("userEmail");
+
+    if (!name || !email) {
+      alert("Please enter your details first.");
+      window.location.href = "index.html";
+      return;
+    }
+
+    document.getElementById("signupName").value = name;
+    document.getElementById("signupEmail").value = email;
+  }
+</script>
+<input type="text" id="signupName" readonly>
+<input type="email" id="signupEmail" readonly>
 </script>
 
 </body>
