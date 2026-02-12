@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>AvenMinds - Signup</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-3">
+				<div class="site-logo">
+					<img src="img/logo.png" alt="">
+				</div>
+			</div>
+			<div class="col-lg-9 col-md-9">
+				<nav class="main-menu">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="active"><a href="#">Signup</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- Signup Section -->
+<section class="signup-section spad">
+	<div class="container">
+		<div class="section-title">
+			<h2>Create Your AvenMinds Account</h2>
+			<p>Register once. Learn at every stage. Grow without limits.</p>
+		</div>
+
+		<form class="signup-form">
+
+			<div class="row">
+				<div class="col-md-6">
+					<input type="text" id="fname" placeholder="First Name *" required>
+				</div>
+				<div class="col-md-6">
+					<input type="text" id="lname" placeholder="Last Name *" required>
+				</div>
+			</div>
+
+			<input type="email" id="email" placeholder="Email Address *" required>
+			<button type="button" class="site-btn mb-3" onclick="sendEmailOTP()">Send Email OTP</button>
+			<input type="text" placeholder="Enter Email OTP *" required>
+
+			<input type="tel" id="phone" placeholder="Contact Number *" required>
+			<button type="button" class="site-btn mb-3" onclick="sendPhoneOTP()">Send Phone OTP</button>
+			<input type="text" placeholder="Enter Phone OTP *" required>
+
+			<select required>
+				<option value="">Select Course / Training *</option>
+
+				<optgroup label="IT Courses">
+					<option>Full Stack Development</option>
+					<option>Frontend Development</option>
+					<option>Backend Development</option>
+					<option>Java Development</option>
+					<option>Python Development</option>
+					<option>Cloud Computing</option>
+					<option>Cyber Security</option>
+					<option>Data Science</option>
+					<option>AI & Machine Learning</option>
+					<option>DevOps</option>
+					<option>Blockchain</option>
+					<option>Software Testing</option>
+					<option>UI/UX Design</option>
+					<option>Mobile App Development</option>
+					<option>AR / VR Development</option>
+					<option>IoT</option>
+					<option>Ethical AI</option>
+				</optgroup>
+
+				<optgroup label="Non-IT & Business">
+					<option>Human Resources</option>
+					<option>Marketing</option>
+					<option>Digital Marketing</option>
+					<option>Accounts & Finance</option>
+					<option>Business Analytics</option>
+					<option>Supply Chain</option>
+					<option>Operations Management</option>
+					<option>Entrepreneurship</option>
+					<option>Photography</option>
+					<option>Videography</option>
+				</optgroup>
+
+				<optgroup label="Competitive Exams">
+					<option>TNPSC</option>
+					<option>UPSC</option>
+					<option>Bank Exams</option>
+					<option>SSC</option>
+					<option>RRB</option>
+					<option>CAT</option>
+					<option>GMAT</option>
+					<option>GRE</option>
+					<option>IELTS</option>
+					<option>TOEFL</option>
+				</optgroup>
+
+				<optgroup label="School Learners">
+					<option>Class 6–8 Foundation</option>
+					<option>Class 9–10</option>
+					<option>Class 11–12 Science</option>
+					<option>Class 11–12 Commerce</option>
+					<option>Olympiad Training</option>
+					<option>NEET Foundation</option>
+					<option>JEE Foundation</option>
+				</optgroup>
+
+				<option>Others</option>
+			</select>
+
+			<textarea placeholder="If Others, please specify"></textarea>
+
+			<button class="site-btn mt-4" type="submit">Create Account</button>
+
+		</form>
+	</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-section spad pb-0">
+	<div class="footer-bottom">
+		<div class="footer-warp text-center">
+			<div class="copyright">
+				© 2026 AvenMinds. All rights reserved.
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+
+<script>
+	// Autofill name & email from index page
+	const params = new URLSearchParams(window.location.search);
+	document.getElementById("fname").value = params.get("fname") || "";
+	document.getElementById("email").value = params.get("email") || "";
+
+	function sendEmailOTP() {
+		alert("Email OTP API will be connected here");
+	}
+
+	function sendPhoneOTP() {
+		alert("Phone OTP API will be connected here");
+	}
+</script>
+
+</body>
+</html>
