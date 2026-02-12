@@ -478,24 +478,29 @@
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-	<script>
-  document.getElementById("leadForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Stop default redirect
+<script>
+document.getElementById("leadForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
     let name = document.getElementById("name").value.trim();
     let email = document.getElementById("email").value.trim();
 
     if (name === "" || email === "") {
-      alert("Please fill all required fields.");
-      return;
+        alert("Please enter your Name and Email.");
+        return;
     }
 
-    // Store in localStorage
-    localStorage.setItem("userName", name);
-    localStorage.setItem("userEmail", email);
+    // Scroll to teacher signup section
+    document.querySelector(".signup-section").scrollIntoView({
+        behavior: "smooth"
+    });
 
-    // Redirect to signup page
-    window.location.href = "signup.html";
-  });
+    // Auto fill the teacher signup form
+    let signupInputs = document.querySelectorAll(".signup-form input[type='text']");
+    
+    signupInputs[0].value = name;   // Your Name
+    signupInputs[1].value = email;  // Your Email
+});
 </script>
+
 </html>
