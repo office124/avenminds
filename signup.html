@@ -1,223 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>AvenMinds - Signup</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AvenMinds - Signup</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="css/font-awesome.min.css"/>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    .signup-form input,
-    .signup-form select,
-    .signup-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .otp-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .otp-row input {
-      flex: 2;
-    }
-
-    .otp-row button {
-      flex: 1;
-      height: 46px;
-    }
-
-    .site-btn {
-      background: #000;
-      color: #fff;
-      padding: 12px 25px;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .site-btn:hover {
-      background: #333;
-    }
-
-    .captcha-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .captcha-text {
-      font-weight: bold;
-      font-size: 18px;
-      background: #f1f1f1;
-      padding: 10px 15px;
-      letter-spacing: 3px;
-    }
-
-    #otherCourse {
-      display: none;
-    }
-  </style>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
 
 <!-- Header -->
 <header class="header-section">
-  <div class="container">
-    <h2 class="text-center mt-4">Create Your AvenMinds Account</h2>
-    <p class="text-center">Register once. Learn at every stage. Grow without limits.</p>
-  </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-3">
+				<div class="site-logo">
+					<img src="img/logo.png" alt="">
+				</div>
+			</div>
+			<div class="col-lg-9 col-md-9">
+				<nav class="main-menu">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="active"><a href="#">Signup</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
 </header>
 
 <!-- Signup Section -->
 <section class="signup-section spad">
-  <div class="container">
-    <form class="signup-form" onsubmit="return validateForm()">
+	<div class="container">
+		<div class="section-title">
+			<h2>Create Your AvenMinds Account</h2>
+			<p>Register once. Learn at every stage. Grow without limits.</p>
+		</div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <input type="text" id="fname" placeholder="First Name *" required>
-        </div>
-        <div class="col-md-6">
-          <input type="text" id="lname" placeholder="Last Name *" required>
-        </div>
-      </div>
+		<form class="signup-form" onsubmit="return validateForm()">
 
-      <!-- Email OTP -->
-      <input type="email" id="email" placeholder="Email Address *" required>
+			<!-- Name -->
+			<div class="row">
+				<div class="col-md-6">
+					<input type="text" id="fname" placeholder="First Name *" required>
+				</div>
+				<div class="col-md-6">
+					<input type="text" id="lname" placeholder="Last Name *" required>
+				</div>
+			</div>
 
-      <div class="otp-row">
-        <input type="text" placeholder="Enter Email OTP *" required>
-        <button type="button" class="site-btn" onclick="sendEmailOTP()">Send OTP</button>
-      </div>
+			<!-- Email + OTP -->
+			<div class="row">
+				<div class="col-md-6">
+					<input type="email" id="email" placeholder="Email Address *" required>
+				</div>
+				<div class="col-md-6">
+					<button type="button" class="site-btn w-100" onclick="sendEmailOTP()">Send Email OTP</button>
+				</div>
+			</div>
 
-      <!-- Phone OTP -->
-      <input type="tel" id="phone" placeholder="Contact Number *" required>
+			<input type="text" placeholder="Enter Email OTP *" required>
 
-      <div class="otp-row">
-        <input type="text" placeholder="Enter Phone OTP *" required>
-        <button type="button" class="site-btn" onclick="sendPhoneOTP()">Send OTP</button>
-      </div>
+			<!-- Phone + OTP -->
+			<div class="row">
+				<div class="col-md-6">
+					<input type="tel" id="phone" placeholder="Contact Number *" required>
+				</div>
+				<div class="col-md-6">
+					<button type="button" class="site-btn w-100" onclick="sendPhoneOTP()">Send Phone OTP</button>
+				</div>
+			</div>
 
-      <!-- Course Dropdown -->
-      <select id="course" onchange="checkOtherCourse()" required>
-        <option value="">Select Course / Training *</option>
+			<input type="text" placeholder="Enter Phone OTP *" required>
 
-        <optgroup label="IT Courses">
-          <option>Full Stack Development</option>
-          <option>Frontend Development</option>
-          <option>Backend Development</option>
-          <option>Java Development</option>
-          <option>Python Development</option>
-          <option>Cloud Computing</option>
-          <option>Cyber Security</option>
-          <option>Data Science</option>
-          <option>AI & Machine Learning</option>
-          <option>DevOps</option>
-          <option>Blockchain</option>
-          <option>Software Testing</option>
-          <option>UI/UX Design</option>
-          <option>Mobile App Development</option>
-        </optgroup>
+			<!-- Course -->
+			<select id="course" onchange="toggleOtherCourse()" required>
+				<option value="">Select Course / Training *</option>
+				<option>Full Stack Development</option>
+				<option>Data Science</option>
+				<option>AI & Machine Learning</option>
+				<option>Cyber Security</option>
+				<option>Cloud Computing</option>
+				<option>Digital Marketing</option>
+				<option>Accounts & Finance</option>
+				<option>TNPSC</option>
+				<option>UPSC</option>
+				<option>Class 9–10</option>
+				<option value="Other">Others</option>
+			</select>
 
-        <optgroup label="Non-IT & Business">
-          <option>Human Resources</option>
-          <option>Digital Marketing</option>
-          <option>Accounts & Finance</option>
-          <option>Business Analytics</option>
-          <option>Entrepreneurship</option>
-        </optgroup>
+			<textarea id="otherCourse" placeholder="If Others, please specify" style="display:none;"></textarea>
 
-        <optgroup label="Competitive Exams">
-          <option>TNPSC</option>
-          <option>UPSC</option>
-          <option>Bank Exams</option>
-          <option>SSC</option>
-        </optgroup>
+			<!-- Captcha -->
+			<div class="row">
+				<div class="col-md-4">
+					<div id="captcha" style="font-weight:600; font-size:18px; letter-spacing:3px;"></div>
+				</div>
+				<div class="col-md-4">
+					<button type="button" class="site-btn w-100" onclick="generateCaptcha()">Refresh Captcha</button>
+				</div>
+				<div class="col-md-4">
+					<input type="text" id="captchaInput" placeholder="Enter Captcha *" required>
+				</div>
+			</div>
 
-        <optgroup label="School Learners">
-          <option>Class 6–8 Foundation</option>
-          <option>Class 9–10</option>
-          <option>Class 11–12 Science</option>
-          <option>Class 11–12 Commerce</option>
-        </optgroup>
+			<button class="site-btn mt-4" type="submit">Create Account</button>
 
-        <option value="Other">Others</option>
-      </select>
-
-      <input type="text" id="otherCourse" placeholder="Please specify your course">
-
-      <!-- Captcha -->
-      <div class="captcha-box">
-        <div id="captcha" class="captcha-text"></div>
-        <button type="button" class="site-btn" onclick="generateCaptcha()">Refresh</button>
-      </div>
-
-      <input type="text" id="captchaInput" placeholder="Enter Captcha *" required>
-
-      <button type="submit" class="site-btn mt-3">Create Account</button>
-
-    </form>
-  </div>
+		</form>
+	</div>
 </section>
 
 <!-- Footer -->
-<footer class="text-center mt-4 mb-3">
-  © 2026 AvenMinds. All rights reserved.
+<footer class="footer-section spad pb-0">
+	<div class="footer-bottom">
+		<div class="footer-warp text-center">
+			<div class="copyright">
+				© 2026 AvenMinds. All rights reserved.
+			</div>
+		</div>
+	</div>
 </footer>
 
-<!-- Scripts -->
+<script src="js/jquery-3.2.1.min.js"></script>
+
 <script>
-  function sendEmailOTP() {
-    alert("Email OTP API will be integrated here");
-  }
+	window.onload = function () {
+		const name = localStorage.getItem("userName");
+		const email = localStorage.getItem("userEmail");
+		if (name) document.getElementById("fname").value = name;
+		if (email) document.getElementById("email").value = email;
+		generateCaptcha();
+	};
 
-  function sendPhoneOTP() {
-    alert("Phone OTP API will be integrated here");
-  }
+	function sendEmailOTP() {
+		alert("Email OTP API will be connected here");
+	}
 
-  function checkOtherCourse() {
-    const course = document.getElementById("course").value;
-    document.getElementById("otherCourse").style.display =
-      course === "Other" ? "block" : "none";
-  }
+	function sendPhoneOTP() {
+		alert("Phone OTP API will be connected here");
+	}
 
-  function generateCaptcha() {
-    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-    let captcha = "";
-    for (let i = 0; i < 6; i++) {
-      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    document.getElementById("captcha").innerText = captcha;
-  }
+	function toggleOtherCourse() {
+		document.getElementById("otherCourse").style.display =
+			document.getElementById("course").value === "Other" ? "block" : "none";
+	}
 
-  function validateForm() {
-    const entered = document.getElementById("captchaInput").value;
-    const actual = document.getElementById("captcha").innerText;
+	function generateCaptcha() {
+		const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+		let c = "";
+		for (let i = 0; i < 6; i++) c += chars[Math.floor(Math.random() * chars.length)];
+		document.getElementById("captcha").innerText = c;
+	}
 
-    if (entered !== actual) {
-      alert("Captcha does not match");
-      generateCaptcha();
-      return false;
-    }
-    return true;
-  }
-
-  window.onload = generateCaptcha;
+	function validateForm() {
+		if (document.getElementById("captchaInput").value !== document.getElementById("captcha").innerText) {
+			alert("Captcha incorrect");
+			generateCaptcha();
+			return false;
+		}
+		return true;
+	}
 </script>
 
 </body>
