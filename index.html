@@ -65,16 +65,81 @@
 	<section class="hero-section set-bg" data-setbg="img/bg.jpg">
 		<div class="container">
 			<div class="hero-text text-white">
-				<h2>Nextt-Gen Learning Today</h2>
+				<h2>Next-Gen Learning Today</h2>
 				<p>"Adaptive, interest-driven learning experiences empowering learners at every stage to build their future with clarity and purpose."</p>
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lead Form</title>
+
+<style>
+  /* Form alignment */
+  #leadForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #leadForm input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+  }
+
+  #leadForm input.last-s {
+    margin-right: 5px;
+  }
+
+  /* Red signup button */
+  #leadForm button {
+    padding: 10px 18px;
+    background-color: #e50914; /* red theme */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  #leadForm button:hover {
+    background-color: #c40812;
+  }
+</style>
+</head>
+
+<body>
+
 <form id="leadForm">
   <input type="text" id="name" placeholder="Name" required>
   <input type="email" id="email" class="last-s" placeholder="E-mail" required>
   <button type="submit">Sign Up</button>
 </form>
+
+<script>
+  document.getElementById("leadForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if (name && email) {
+      // Redirect with data
+      window.location.href = 
+        `signup.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
+    }
+  });
+</script>
+
+</body>
+</html>
+
 				</div>
 			</div>
 		</div>
