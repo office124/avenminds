@@ -8,18 +8,6 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
-
-	<style>
-		.signup-form input,
-		.signup-form select,
-		.signup-form textarea {
-			width: 100%;
-			padding: 12px;
-			margin-bottom: 15px;
-			border: 1px solid #ccc;
-			border-radius: 4px;
-		}
-	</style>
 </head>
 
 <body>
@@ -28,10 +16,12 @@
 <header class="header-section">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3">
-				<img src="img/logo.png" alt="AvenMinds Logo">
+			<div class="col-lg-3 col-md-3">
+				<div class="site-logo">
+					<img src="img/logo.png" alt="">
+				</div>
 			</div>
-			<div class="col-lg-9">
+			<div class="col-lg-9 col-md-9">
 				<nav class="main-menu">
 					<ul>
 						<li><a href="index.html">Home</a></li>
@@ -43,58 +33,53 @@
 	</div>
 </header>
 
-<!-- Signup -->
+<!-- Signup Section -->
 <section class="signup-section spad">
 	<div class="container">
 		<div class="section-title">
 			<h2>Create Your AvenMinds Account</h2>
-			<p>Register once. Learn at every stage.</p>
+			<p>Register once. Learn at every stage. Grow without limits.</p>
 		</div>
 
-		<form class="signup-form" onsubmit="return validateForm();">
+		<form class="signup-form" onsubmit="return validateForm()">
 
 			<!-- Name -->
 			<div class="row">
 				<div class="col-md-6">
-					<input type="text" placeholder="First Name *" required>
+					<input type="text" id="fname" placeholder="First Name *" required>
 				</div>
 				<div class="col-md-6">
-					<input type="text" placeholder="Last Name *" required>
+					<input type="text" id="lname" placeholder="Last Name *" required>
 				</div>
 			</div>
 
-			<!-- Email -->
-			<input type="email" id="email" placeholder="Email Address *" required>
-
-			<button type="button" class="site-btn mb-2" onclick="sendEmailOTP()">
-				Send Email OTP
-			</button>
-
-			<input type="text" id="emailOtp" placeholder="Enter Email OTP *" required>
-
-			<!-- Phone -->
+			<!-- Email + OTP -->
 			<div class="row">
-				<div class="col-md-3">
-					<select id="countryCode" required>
-						<option value="+91">+91 (India)</option>
-						<option value="+1">+1 (USA)</option>
-						<option value="+44">+44 (UK)</option>
-					</select>
+				<div class="col-md-6">
+					<input type="email" id="email" placeholder="Email Address *" required>
 				</div>
-				<div class="col-md-9">
-					<input type="tel" id="phone" placeholder="Mobile Number *" required>
+				<div class="col-md-6">
+					<button type="button" class="site-btn w-100" onclick="sendEmailOTP()">Send Email OTP</button>
 				</div>
 			</div>
 
-			<button type="button" class="site-btn mb-2" onclick="sendPhoneOTP()">
-				Send Phone OTP
-			</button>
+			<input type="text" placeholder="Enter Email OTP *" required>
 
-			<input type="text" id="phoneOtp" placeholder="Enter Phone OTP *" required>
+			<!-- Phone + OTP -->
+			<div class="row">
+				<div class="col-md-6">
+					<input type="tel" id="phone" placeholder="Contact Number *" required>
+				</div>
+				<div class="col-md-6">
+					<button type="button" class="site-btn w-100" onclick="sendPhoneOTP()">Send Phone OTP</button>
+				</div>
+			</div>
+
+			<input type="text" placeholder="Enter Phone OTP *" required>
 
 			<!-- Course -->
 			<select id="course" onchange="toggleOtherCourse()" required>
-				<option value="">Select Course *</option>
+				<option value="">Select Course / Training *</option>
 				<option>Full Stack Development</option>
 				<option>Data Science</option>
 				<option>AI & Machine Learning</option>
@@ -102,32 +87,28 @@
 				<option>Cloud Computing</option>
 				<option>Digital Marketing</option>
 				<option>Accounts & Finance</option>
+				<option>TNPSC</option>
+				<option>UPSC</option>
+				<option>Class 9–10</option>
 				<option value="Other">Others</option>
 			</select>
 
-			<textarea id="otherCourse" placeholder="If Others, specify course"></textarea>
-
-			<!-- Fees -->
-			<input type="number" placeholder="Course Fees (₹) *" required>
+			<textarea id="otherCourse" placeholder="If Others, please specify" style="display:none;"></textarea>
 
 			<!-- Captcha -->
 			<div class="row">
 				<div class="col-md-4">
-					<div id="captcha" style="font-weight:bold; letter-spacing:3px;"></div>
+					<div id="captcha" style="font-weight:600; font-size:18px; letter-spacing:3px;"></div>
 				</div>
 				<div class="col-md-4">
-					<button type="button" class="site-btn w-100" onclick="generateCaptcha()">
-						Refresh Captcha
-					</button>
+					<button type="button" class="site-btn w-100" onclick="generateCaptcha()">Refresh Captcha</button>
 				</div>
 				<div class="col-md-4">
 					<input type="text" id="captchaInput" placeholder="Enter Captcha *" required>
 				</div>
 			</div>
 
-			<button type="submit" class="site-btn mt-4">
-				Create Account
-			</button>
+			<button class="site-btn mt-4" type="submit">Create Account</button>
 
 		</form>
 	</div>
@@ -135,20 +116,32 @@
 
 <!-- Footer -->
 <footer class="footer-section spad pb-0">
-	<div class="footer-bottom text-center">
-		© 2026 AvenMinds. All rights reserved.
+	<div class="footer-bottom">
+		<div class="footer-warp text-center">
+			<div class="copyright">
+				© 2026 AvenMinds. All rights reserved.
+			</div>
+		</div>
 	</div>
 </footer>
 
+<script src="js/jquery-3.2.1.min.js"></script>
+
 <script>
-	window.onload = generateCaptcha;
+	window.onload = function () {
+		const name = localStorage.getItem("userName");
+		const email = localStorage.getItem("userEmail");
+		if (name) document.getElementById("fname").value = name;
+		if (email) document.getElementById("email").value = email;
+		generateCaptcha();
+	};
 
 	function sendEmailOTP() {
-		alert("Email OTP sent (API integration pending)");
+		alert("Email OTP API will be connected here");
 	}
 
 	function sendPhoneOTP() {
-		alert("Phone OTP sent (API integration pending)");
+		alert("Phone OTP API will be connected here");
 	}
 
 	function toggleOtherCourse() {
@@ -159,9 +152,7 @@
 	function generateCaptcha() {
 		const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 		let c = "";
-		for (let i = 0; i < 6; i++) {
-			c += chars[Math.floor(Math.random() * chars.length)];
-		}
+		for (let i = 0; i < 6; i++) c += chars[Math.floor(Math.random() * chars.length)];
 		document.getElementById("captcha").innerText = c;
 	}
 
@@ -171,8 +162,7 @@
 			generateCaptcha();
 			return false;
 		}
-		alert("Form validated. Backend can be connected.");
-		return false;
+		return true;
 	}
 </script>
 
