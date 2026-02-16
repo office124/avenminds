@@ -8,6 +8,22 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
+
+	<style>
+		.signup-form input,
+		.signup-form select,
+		.signup-form textarea {
+			width: 100%;
+			padding: 12px;
+			margin-bottom: 15px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+		}
+		#emailOtpField,
+		#phoneOtpField {
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -18,7 +34,7 @@
 		<div class="row">
 			<div class="col-lg-3 col-md-3">
 				<div class="site-logo">
-					<img src="img/logo.png" alt="">
+					<img src="img/logo.png" alt="AvenMinds Logo">
 				</div>
 			</div>
 			<div class="col-lg-9 col-md-9">
@@ -41,7 +57,7 @@
 			<p>Register once. Learn at every stage. Grow without limits.</p>
 		</div>
 
-		<form class="signup-form" onsubmit="return validateForm()">
+		<form class="signup-form" onsubmit="return validateForm();">
 
 			<!-- Name -->
 			<div class="row">
@@ -53,29 +69,44 @@
 				</div>
 			</div>
 
-			<!-- Email + OTP -->
+			<!-- Email -->
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<input type="email" id="email" placeholder="Email Address *" required>
 				</div>
-				<div class="col-md-6">
-					<button type="button" class="site-btn w-100" onclick="sendEmailOTP()">Send Email OTP</button>
+				<div class="col-md-4">
+					<button type="button" class="site-btn w-100" onclick="sendEmailOTP()">
+						Send Email OTP
+					</button>
 				</div>
 			</div>
 
-			<input type="text" placeholder="Enter Email OTP *" required>
+			<input type="text" id="emailOtpField" placeholder="Enter Email OTP *">
 
-			<!-- Phone + OTP -->
+			<!-- Phone with Country Code -->
 			<div class="row">
-				<div class="col-md-6">
-					<input type="tel" id="phone" placeholder="Contact Number *" required>
+				<div class="col-md-3">
+					<select id="countryCode" required>
+						<option value="+91">🇮🇳 +91</option>
+						<option value="+1">🇺🇸 +1</option>
+						<option value="+44">🇬🇧 +44</option>
+						<option value="+61">🇦🇺 +61</option>
+						<option value="+971">🇦🇪 +971</option>
+					</select>
 				</div>
-				<div class="col-md-6">
-					<button type="button" class="site-btn w-100" onclick="sendPhoneOTP()">Send Phone OTP</button>
+
+				<div class="col-md-5">
+					<input type="tel" id="phone" placeholder="Mobile Number *" required>
+				</div>
+
+				<div class="col-md-4">
+					<button type="button" class="site-btn w-100" onclick="sendPhoneOTP()">
+						Send Phone OTP
+					</button>
 				</div>
 			</div>
 
-			<input type="text" placeholder="Enter Phone OTP *" required>
+			<input type="text" id="phoneOtpField" placeholder="Enter Phone OTP *">
 
 			<!-- Course -->
 			<select id="course" onchange="toggleOtherCourse()" required>
@@ -96,19 +127,21 @@
 			<textarea id="otherCourse" placeholder="If Others, please specify" style="display:none;"></textarea>
 
 			<!-- Captcha -->
-			<div class="row">
-				<div class="col-md-4">
-					<div id="captcha" style="font-weight:600; font-size:18px; letter-spacing:3px;"></div>
+			<div class="row align-items-center">
+				<div class="col-md-3">
+					<div id="captcha" style="font-size:18px; font-weight:600; letter-spacing:3px;"></div>
 				</div>
-				<div class="col-md-4">
-					<button type="button" class="site-btn w-100" onclick="generateCaptcha()">Refresh Captcha</button>
+				<div class="col-md-3">
+					<button type="button" class="site-btn w-100" onclick="generateCaptcha()">Refresh</button>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<input type="text" id="captchaInput" placeholder="Enter Captcha *" required>
 				</div>
 			</div>
 
-			<button class="site-btn mt-4" type="submit">Create Account</button>
+			<button type="submit" class="site-btn mt-4">
+				Create Account
+			</button>
 
 		</form>
 	</div>
@@ -129,19 +162,29 @@
 
 <script>
 	window.onload = function () {
-		const name = localStorage.getItem("userName");
-		const email = localStorage.getItem("userEmail");
-		if (name) document.getElementById("fname").value = name;
-		if (email) document.getElementById("email").value = email;
 		generateCaptcha();
 	};
 
 	function sendEmailOTP() {
-		alert("Email OTP API will be connected here");
+		const email = document.getElementById("email").value;
+		if (!email) {
+			alert("Please enter email address");
+			return;
+		}
+		document.getElementById("emailOtpField").style.display = "block";
+		alert("Email OTP will be sent to " + email);
 	}
 
 	function sendPhoneOTP() {
-		alert("Phone OTP API will be connected here");
+		const code = document.getElementById("countryCode").value;
+		const phone = document.getElementById("phone").value;
+
+		if (!phone) {
+			alert("Please enter mobile number");
+			return;
+		}
+		document.getElementById("phoneOtpField").style.display = "block";
+		alert("Phone OTP will be sent to " + code + " " + phone);
 	}
 
 	function toggleOtherCourse() {
@@ -151,18 +194,24 @@
 
 	function generateCaptcha() {
 		const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-		let c = "";
-		for (let i = 0; i < 6; i++) c += chars[Math.floor(Math.random() * chars.length)];
-		document.getElementById("captcha").innerText = c;
+		let captcha = "";
+		for (let i = 0; i < 6; i++) {
+			captcha += chars[Math.floor(Math.random() * chars.length)];
+		}
+		document.getElementById("captcha").innerText = captcha;
 	}
 
 	function validateForm() {
-		if (document.getElementById("captchaInput").value !== document.getElementById("captcha").innerText) {
-			alert("Captcha incorrect");
+		if (
+			document.getElementById("captchaInput").value !==
+			document.getElementById("captcha").innerText
+		) {
+			alert("Incorrect captcha");
 			generateCaptcha();
 			return false;
 		}
-		return true;
+		alert("Signup successful (backend integration pending)");
+		return false; // change to true after backend integration
 	}
 </script>
 
