@@ -513,27 +513,23 @@
 <script src="js/main.js"></script>
 
 	<script>
-document.addEventListener("DOMContentLoaded", function () {
+<form action="signup.html" method="get">
 
-    const leadForm = document.getElementById("leadForm");
+    <input type="text" name="name"
+           placeholder="Your Name"
+           required
+           class="form-control">
 
-    if (leadForm) {
-        leadForm.addEventListener("submit", function (event) {
+    <input type="email" name="email"
+           placeholder="Your E-mail"
+           required
+           class="form-control">
 
-            // Let browser check required validation first
-            if (!leadForm.checkValidity()) {
-                return;
-            }
+    <button type="submit" class="site-btn signup-btn">
+        Sign Up Now
+    </button>
 
-            event.preventDefault(); // stop default submit
-
-            // If validation passed → redirect
-            window.location.href = "signup.html";
-        });
-    }
-
-});
-	});
+</form>
 	</script>
 	<!-- Terms & Conditions Modal -->
 <div class="modal fade" id="termsModal" tabindex="-1">
