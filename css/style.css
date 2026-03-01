@@ -1772,6 +1772,7 @@ ol {
     border: 1px solid #ddd;
     border-radius: 5px;
     width: 100%;
+}
 /* Make Hero Sign Up Button Same as Login Button */
 .signup-btn {
     background-color: #d82a4e !important;  /* Same as login */
