@@ -13,27 +13,29 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #ffffff; /* white page background */
         }
 
         .signup-section {
             padding: 60px 0;
+            background-color: #f8f9fa;
         }
 
         .signup-form {
-            background-color: #fff;
-            border: 1px solid #ddd;
+            background-color: #ffffff; /* white form */
+            border: 2px solid #1c75bc; /* theme color border */
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-            max-width: 700px;
+            max-width: 750px;
             margin: auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
         .signup-form h2 {
             font-weight: 700;
             margin-bottom: 15px;
             text-align: center;
+            color: #1c75bc; /* theme color heading */
         }
 
         .signup-form p {
@@ -52,7 +54,7 @@
         }
 
         .signup-form button.site-btn {
-            background-color: #333;
+            background-color: #1c75bc; /* theme color button */
             color: #fff;
             border: none;
             padding: 12px 0;
@@ -63,7 +65,7 @@
         }
 
         .signup-form button.site-btn:hover {
-            background-color: #555;
+            background-color: #155a8a;
         }
 
         #captcha {
@@ -83,16 +85,22 @@
             align-items: center;
         }
 
-        .captcha-controls button {
+        .captcha-controls button, .audio-btn {
             flex: 1;
+            padding: 10px;
+            font-size: 14px;
         }
 
         .audio-btn {
-            cursor: pointer;
-            padding: 6px 10px;
-            background-color: #e9ecef;
-            border: 1px solid #ccc;
+            background-color: #1c75bc;
+            color: #fff;
+            text-align: center;
             border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .audio-btn:hover {
+            background-color: #155a8a;
         }
 
     </style>
@@ -159,112 +167,9 @@
             </div>
             <input type="text" id="phoneOTP" placeholder="Enter Phone OTP *" required>
 
-            <!-- Education Qualification -->
+            <!-- Education Qualification Dropdown -->
             <select id="education" required>
                 <option value="">Select Education Qualification *</option>
-<select id="education" required>
-    <option value="">Select Education Qualification *</option>
-    <option>Accounting Certificate</option>
-    <option>Actuarial Science Diploma</option>
-    <option>Advanced Diploma in Computer Applications</option>
-    <option>Advanced Diploma in Management</option>
-    <option>Anthropology Degree</option>
-    <option>Applied Mathematics Degree</option>
-    <option>Architecture Diploma</option>
-    <option>Art & Design Diploma</option>
-    <option>Arts High School</option>
-    <option>Aviation Studies Diploma</option>
-    <option>Banking & Finance Diploma</option>
-    <option>Bachelor of Arts (BA)</option>
-    <option>Bachelor of Business Administration (BBA)</option>
-    <option>Bachelor of Commerce (BCom)</option>
-    <option>Bachelor of Education (BEd)</option>
-    <option>Bachelor of Engineering (BE)</option>
-    <option>Bachelor of Laws (LLB)</option>
-    <option>Bachelor of Science (BSc)</option>
-    <option>Bachelor of Technology (BTech)</option>
-    <option>Biochemistry Degree</option>
-    <option>Biology High School</option>
-    <option>Biotechnology Degree</option>
-    <option>Business Analytics Diploma</option>
-    <option>Chemical Engineering Diploma</option>
-    <option>Chemistry Degree</option>
-    <option>Civil Engineering Diploma</option>
-    <option>Class 10 (Secondary School)</option>
-    <option>Class 12 (Senior Secondary)</option>
-    <option>Computer Applications Diploma</option>
-    <option>Computer Science Degree</option>
-    <option>Cyber Security Diploma</option>
-    <option>Data Science Diploma</option>
-    <option>Diploma in Accounting</option>
-    <option>Diploma in Animation</option>
-    <option>Diploma in Business Administration</option>
-    <option>Diploma in Civil Engineering</option>
-    <option>Diploma in Computer Science</option>
-    <option>Diploma in Digital Marketing</option>
-    <option>Diploma in Electrical Engineering</option>
-    <option>Diploma in Electronics</option>
-    <option>Diploma in Fashion Designing</option>
-    <option>Diploma in Graphic Design</option>
-    <option>Diploma in Hospitality Management</option>
-    <option>Diploma in Mechanical Engineering</option>
-    <option>Diploma in Nursing</option>
-    <option>Diploma in Photography</option>
-    <option>Diploma in Software Development</option>
-    <option>Diploma in Web Development</option>
-    <option>Economics Degree</option>
-    <option>Electrical Engineering Diploma</option>
-    <option>Electronics Engineering Diploma</option>
-    <option>Engineering High School</option>
-    <option>Environmental Science Degree</option>
-    <option>Fashion Design Diploma</option>
-    <option>Fine Arts Diploma</option>
-    <option>Foreign Language Diploma</option>
-    <option>General Studies High School</option>
-    <option>Geography Degree</option>
-    <option>Graphic Designing Diploma</option>
-    <option>Hotel Management Diploma</option>
-    <option>Human Resource Management Diploma</option>
-    <option>Information Technology Diploma</option>
-    <option>Journalism & Mass Communication Degree</option>
-    <option>Law Degree (LLB)</option>
-    <option>Logistics & Supply Chain Diploma</option>
-    <option>Management Diploma</option>
-    <option>Mathematics High School</option>
-    <option>Mathematics Degree</option>
-    <option>Mechanical Engineering Diploma</option>
-    <option>Medical Diploma</option>
-    <option>Medicine Degree (MBBS)</option>
-    <option>Microbiology Degree</option>
-    <option>Music Diploma</option>
-    <option>MBA</option>
-    <option>Master of Arts (MA)</option>
-    <option>Master of Commerce (MCom)</option>
-    <option>Master of Education (MEd)</option>
-    <option>Master of Science (MSc)</option>
-    <option>Media Studies Degree</option>
-    <option>Medical Laboratory Technology Diploma</option>
-    <option>Networking Diploma</option>
-    <option>Nursing Diploma</option>
-    <option>Nutrition Diploma</option>
-    <option>PhD</option>
-    <option>Pharmacy Diploma</option>
-    <option>Pharmacy Degree (BPharm)</option>
-    <option>Photography Diploma</option>
-    <option>Physics Degree</option>
-    <option>Political Science Degree</option>
-    <option>Psychology Degree</option>
-    <option>Science High School</option>
-    <option>Software Development Diploma</option>
-    <option>Social Work Degree</option>
-    <option>Statistics Degree</option>
-    <option>Teaching Diploma</option>
-    <option>Tourism & Travel Management Diploma</option>
-    <option>Travel & Tourism Diploma</option>
-    <option>Veterinary Science Degree</option>
-    <option>Web Development Diploma</option>
-    <option>Others</option>
-</select>
             </select>
 
             <!-- Role Selection -->
@@ -282,7 +187,7 @@
                 </div>
                 <div class="col-md-4 captcha-controls">
                     <button type="button" class="site-btn" onclick="generateCaptcha()">Refresh Captcha</button>
-                    <span class="audio-btn" onclick="playCaptchaAudio()">🔊 Audio</span>
+                    <div class="audio-btn" onclick="playCaptchaAudio()">🔊 Audio</div>
                 </div>
                 <div class="col-md-4">
                     <input type="text" id="captchaInput" placeholder="Enter Captcha *" required>
@@ -305,11 +210,41 @@
     </div>
 </footer>
 
-<!-- Scripts -->
 <script src="js/jquery-3.2.1.min.js"></script>
-
 <script>
     let currentCaptcha = '';
+
+    // Populate Education Dropdown dynamically
+    const educationOptions = [
+        "Accounting Certificate","Actuarial Science Diploma","Advanced Diploma in Computer Applications","Advanced Diploma in Management",
+        "Anthropology Degree","Applied Mathematics Degree","Architecture Diploma","Art & Design Diploma","Arts High School",
+        "Aviation Studies Diploma","Banking & Finance Diploma","Bachelor of Arts (BA)","Bachelor of Business Administration (BBA)",
+        "Bachelor of Commerce (BCom)","Bachelor of Education (BEd)","Bachelor of Engineering (BE)","Bachelor of Laws (LLB)",
+        "Bachelor of Science (BSc)","Bachelor of Technology (BTech)","Biochemistry Degree","Biology High School","Biotechnology Degree",
+        "Business Analytics Diploma","Chemical Engineering Diploma","Chemistry Degree","Civil Engineering Diploma","Class 10 (Secondary School)",
+        "Class 12 (Senior Secondary)","Computer Applications Diploma","Computer Science Degree","Cyber Security Diploma","Data Science Diploma",
+        "Diploma in Accounting","Diploma in Animation","Diploma in Business Administration","Diploma in Civil Engineering","Diploma in Computer Science",
+        "Diploma in Digital Marketing","Diploma in Electrical Engineering","Diploma in Electronics","Diploma in Fashion Designing","Diploma in Graphic Design",
+        "Diploma in Hospitality Management","Diploma in Mechanical Engineering","Diploma in Nursing","Diploma in Photography","Diploma in Software Development",
+        "Diploma in Web Development","Economics Degree","Electrical Engineering Diploma","Electronics Engineering Diploma","Engineering High School",
+        "Environmental Science Degree","Fashion Design Diploma","Fine Arts Diploma","Foreign Language Diploma","General Studies High School",
+        "Geography Degree","Graphic Designing Diploma","Hotel Management Diploma","Human Resource Management Diploma","Information Technology Diploma",
+        "Journalism & Mass Communication Degree","Law Degree (LLB)","Logistics & Supply Chain Diploma","Management Diploma","Mathematics High School",
+        "Mathematics Degree","Mechanical Engineering Diploma","Medical Diploma","Medicine Degree (MBBS)","Microbiology Degree","Music Diploma",
+        "MBA","Master of Arts (MA)","Master of Commerce (MCom)","Master of Education (MEd)","Master of Science (MSc)","Media Studies Degree",
+        "Medical Laboratory Technology Diploma","Networking Diploma","Nursing Diploma","Nutrition Diploma","PhD","Pharmacy Diploma","Pharmacy Degree (BPharm)",
+        "Photography Diploma","Physics Degree","Political Science Degree","Psychology Degree","Science High School","Software Development Diploma",
+        "Social Work Degree","Statistics Degree","Teaching Diploma","Tourism & Travel Management Diploma","Travel & Tourism Diploma",
+        "Veterinary Science Degree","Web Development Diploma","Others"
+    ];
+
+    const eduSelect = document.getElementById('education');
+    educationOptions.forEach(option => {
+        const opt = document.createElement('option');
+        opt.value = option;
+        opt.textContent = option;
+        eduSelect.appendChild(opt);
+    });
 
     window.onload = function() {
         generateCaptcha();
@@ -344,10 +279,9 @@
             generateCaptcha();
             return false;
         }
-        // Optional: Add email & phone OTP verification here
         alert("All fields validated. Redirecting to dashboard...");
         window.location.href = "dashboard.html";
-        return false; // Prevent default form submit
+        return false;
     }
 </script>
 
