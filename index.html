@@ -57,6 +57,50 @@
 				</div>
 			</div>
 		</div>
+		<style>
+
+/* Paragraphs & Normal Text */
+body, p, li, span, input, textarea {
+    font-family: "Times New Roman", Times, serif !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bodoni MT", serif !important;
+}
+
+/* Footer & Small Text Arabic Typewriter Style */
+.footer-section,
+.footer-section p,
+.footer-section li,
+.footer-section a,
+.copyright,
+.students,
+.price {
+    font-family: "Arabic Typesetting", "Courier New", monospace !important;
+}
+
+/* Make Sign Up Button Same Style as Login */
+#leadForm .site-btn {
+    background-color: #f6783a;  /* same as header login button */
+    color: #fff;
+    font-size: 16px;
+    padding: 14px 25px;
+    width: 100%;
+}
+
+/* Make form fields align nicely */
+#leadForm .form-control {
+    height: 50px;
+    font-size: 15px;
+}
+
+/* Improve spacing */
+#leadForm .row {
+    align-items: center;
+}
+
+</style>
 	</header>
 	<!-- Header section end -->
 
@@ -70,10 +114,14 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
-<form id="leadForm" class="intro-newslatter text-center">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="email" id="email" placeholder="Your E-mail" required>
-    <button type="submit" class="site-btn">Sign Up Now</button>
+<form id="leadForm" class="intro-newslatter">
+    
+    <input type="text" id="name" placeholder="Your Name" required class="form-control">
+    
+    <input type="email" id="email" placeholder="Your E-mail" required class="form-control">
+    
+    <button type="submit" class="site-btn signup-btn">Sign Up Now</button>
+
 </form>
 				</div>
 			</div>
