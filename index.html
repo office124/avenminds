@@ -506,45 +506,52 @@ h1, h2, h3, h4, h5, h6 {
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-			
-document.addEventListener("DOMContentLoaded", function () {
 
-    const leadForm = document.getElementById("leadForm");
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
 
-    if (leadForm) {
-        leadForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+	    const leadForm = document.getElementById("leadForm");
 
-            const nameInput = document.getElementById("name");
-            const emailInput = document.getElementById("email");
+	    if (leadForm) {
+	        leadForm.addEventListener("submit", function (event) {
+	            event.preventDefault();
 
-            if (!nameInput || !emailInput) return;
+	            const nameInput = document.getElementById("name");
+	            const emailInput = document.getElementById("email");
 
-            const name = nameInput.value.trim();
-            const email = emailInput.value.trim();
+	            if (!nameInput || !emailInput) {
+	                console.warn("Name or Email input not found.");
+	                return;
+	            }
 
-            if (name === "" || email === "") {
-                alert("Please enter your Name and Email.");
-                return;
-            }
+	            const name = nameInput.value.trim();
+	            const email = emailInput.value.trim();
 
-            const signupSection = document.querySelector(".signup-section");
-            if (signupSection) {
-                signupSection.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
+	            if (name === "" || email === "") {
+	                alert("Please enter your Name and Email.");
+	                return;
+	            }
 
-            const signupInputs = document.querySelectorAll(".signup-form input[type='text']");
-            if (signupInputs.length >= 2) {
-                signupInputs[0].value = name;
-                signupInputs[1].value = email;
-            }
-        });
-    }
+	            const signupSection = document.querySelector(".signup-section");
 
-});
-</script>
+	            if (signupSection) {
+	                signupSection.scrollIntoView({
+	                    behavior: "smooth",
+	                    block: "start"
+	                });
+	            }
+
+	            const signupInputs = document.querySelectorAll(".signup-form input[type='text']");
+
+	            if (signupInputs.length >= 2) {
+	                signupInputs[0].value = name;
+	                signupInputs[1].value = email;
+	            }
+	        });
+	    }
+
+	});
+	</script>
 
 </body>
 </html>
