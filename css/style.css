@@ -1755,3 +1755,37 @@ ol {
 		margin-right: 10px;
 	}
 }
+/* Form Alignment */
+#leadForm {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input Styling */
+#leadForm input {
+    height: 50px;
+    padding: 0 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Button Same Color as Login */
+.signup-btn {
+    background-color: #f6783a;  /* Same as login button */
+    color: #fff;
+    font-size: 17px;
+    padding: 14px;
+    border-radius: 5px;
+    width: 100%;
+    transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.signup-btn:hover {
+    opacity: 0.9;
+}
