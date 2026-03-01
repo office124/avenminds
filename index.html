@@ -526,7 +526,7 @@ h1, h2, h3, h4, h5, h6 {
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-
+<script>
 document.getElementById("leadForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -545,28 +545,10 @@ document.getElementById("leadForm").addEventListener("submit", function(event) {
 
     // Auto fill the teacher signup form
     let signupInputs = document.querySelectorAll(".signup-form input[type='text']");
-    
-    signupInputs[0].value = name;   // Your Name
-    signupInputs[1].value = email;  // Your Email
-});
-<script>
-document.getElementById("leadForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
-
-    if (name === "" || email === "") {
-        alert("Please enter your Name and Email.");
-        return;
-    }
-
-    // Redirect to signup page with data
-    window.location.href = "signup.html?name=" 
-        + encodeURIComponent(name) 
-        + "&email=" 
-        + encodeURIComponent(email);
+    signupInputs[0].value = name;
+    signupInputs[1].value = email;
 });
 </script>
-
+});
+</body>
 </html>
