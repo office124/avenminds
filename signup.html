@@ -1,182 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>AvenMinds - Signup</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvenMinds - Signup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .signup-section {
+            padding: 60px 0;
+        }
+
+        .signup-form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .signup-form h2 {
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .signup-form p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .signup-form input, .signup-form select, .signup-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .signup-form button.site-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 12px 0;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .signup-form button.site-btn:hover {
+            background-color: #555;
+        }
+
+        #captcha {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 3px;
+            border-radius: 5px;
+            user-select: none;
+        }
+
+        .captcha-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .captcha-controls button {
+            flex: 1;
+        }
+
+        .audio-btn {
+            cursor: pointer;
+            padding: 6px 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+    </style>
 </head>
-
 <body>
 
 <!-- Header -->
 <header class="header-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-3">
-				<div class="site-logo">
-					<img src="img/logo.png" alt="">
-				</div>
-			</div>
-			<div class="col-lg-9 col-md-9">
-				<nav class="main-menu">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li class="active"><a href="#">Signup</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-3">
+                <div class="site-logo">
+                    <img src="img/logo.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <nav class="main-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="#">Signup</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
 </header>
 
 <!-- Signup Section -->
 <section class="signup-section spad">
-	<div class="container">
-		<div class="section-title">
-			<h2>Create Your AvenMinds Account</h2>
-			<p>Register once. Learn at every stage. Grow without limits.</p>
-		</div>
+    <div class="container">
+        <form class="signup-form" onsubmit="return validateForm()">
+            <h2>Create Your AvenMinds Account</h2>
+            <p>Register once. Access courses based on your registration & selected plan.</p>
 
-		<form class="signup-form" onsubmit="return validateForm()">
+            <!-- Name -->
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" id="fname" placeholder="First Name *" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" id="lname" placeholder="Last Name *" required>
+                </div>
+            </div>
 
-			<!-- Name -->
-			<div class="row">
-				<div class="col-md-6">
-					<input type="text" id="fname" placeholder="First Name *" required>
-				</div>
-				<div class="col-md-6">
-					<input type="text" id="lname" placeholder="Last Name *" required>
-				</div>
-			</div>
+            <!-- Email + OTP -->
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="email" id="email" placeholder="Email Address *" required>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="site-btn" onclick="sendEmailOTP()">Send Email OTP</button>
+                </div>
+            </div>
+            <input type="text" id="emailOTP" placeholder="Enter Email OTP *" required>
 
-			<!-- Email + OTP -->
-			<div class="row">
-				<div class="col-md-6">
-					<input type="email" id="email" placeholder="Email Address *" required>
-				</div>
-				<div class="col-md-6">
-					<button type="button" class="site-btn w-100" onclick="sendEmailOTP()">Send Email OTP</button>
-				</div>
-			</div>
+            <!-- Phone + OTP -->
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="tel" id="phone" placeholder="Contact Number *" required>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="site-btn" onclick="sendPhoneOTP()">Send Phone OTP</button>
+                </div>
+            </div>
+            <input type="text" id="phoneOTP" placeholder="Enter Phone OTP *" required>
 
-			<input type="text" placeholder="Enter Email OTP *" required>
+            <!-- Education Qualification -->
+            <select id="education" required>
+                <option value="">Select Education Qualification *</option>
+<select id="education" required>
+    <option value="">Select Education Qualification *</option>
+    <option>Accounting Certificate</option>
+    <option>Actuarial Science Diploma</option>
+    <option>Advanced Diploma in Computer Applications</option>
+    <option>Advanced Diploma in Management</option>
+    <option>Anthropology Degree</option>
+    <option>Applied Mathematics Degree</option>
+    <option>Architecture Diploma</option>
+    <option>Art & Design Diploma</option>
+    <option>Arts High School</option>
+    <option>Aviation Studies Diploma</option>
+    <option>Banking & Finance Diploma</option>
+    <option>Bachelor of Arts (BA)</option>
+    <option>Bachelor of Business Administration (BBA)</option>
+    <option>Bachelor of Commerce (BCom)</option>
+    <option>Bachelor of Education (BEd)</option>
+    <option>Bachelor of Engineering (BE)</option>
+    <option>Bachelor of Laws (LLB)</option>
+    <option>Bachelor of Science (BSc)</option>
+    <option>Bachelor of Technology (BTech)</option>
+    <option>Biochemistry Degree</option>
+    <option>Biology High School</option>
+    <option>Biotechnology Degree</option>
+    <option>Business Analytics Diploma</option>
+    <option>Chemical Engineering Diploma</option>
+    <option>Chemistry Degree</option>
+    <option>Civil Engineering Diploma</option>
+    <option>Class 10 (Secondary School)</option>
+    <option>Class 12 (Senior Secondary)</option>
+    <option>Computer Applications Diploma</option>
+    <option>Computer Science Degree</option>
+    <option>Cyber Security Diploma</option>
+    <option>Data Science Diploma</option>
+    <option>Diploma in Accounting</option>
+    <option>Diploma in Animation</option>
+    <option>Diploma in Business Administration</option>
+    <option>Diploma in Civil Engineering</option>
+    <option>Diploma in Computer Science</option>
+    <option>Diploma in Digital Marketing</option>
+    <option>Diploma in Electrical Engineering</option>
+    <option>Diploma in Electronics</option>
+    <option>Diploma in Fashion Designing</option>
+    <option>Diploma in Graphic Design</option>
+    <option>Diploma in Hospitality Management</option>
+    <option>Diploma in Mechanical Engineering</option>
+    <option>Diploma in Nursing</option>
+    <option>Diploma in Photography</option>
+    <option>Diploma in Software Development</option>
+    <option>Diploma in Web Development</option>
+    <option>Economics Degree</option>
+    <option>Electrical Engineering Diploma</option>
+    <option>Electronics Engineering Diploma</option>
+    <option>Engineering High School</option>
+    <option>Environmental Science Degree</option>
+    <option>Fashion Design Diploma</option>
+    <option>Fine Arts Diploma</option>
+    <option>Foreign Language Diploma</option>
+    <option>General Studies High School</option>
+    <option>Geography Degree</option>
+    <option>Graphic Designing Diploma</option>
+    <option>Hotel Management Diploma</option>
+    <option>Human Resource Management Diploma</option>
+    <option>Information Technology Diploma</option>
+    <option>Journalism & Mass Communication Degree</option>
+    <option>Law Degree (LLB)</option>
+    <option>Logistics & Supply Chain Diploma</option>
+    <option>Management Diploma</option>
+    <option>Mathematics High School</option>
+    <option>Mathematics Degree</option>
+    <option>Mechanical Engineering Diploma</option>
+    <option>Medical Diploma</option>
+    <option>Medicine Degree (MBBS)</option>
+    <option>Microbiology Degree</option>
+    <option>Music Diploma</option>
+    <option>MBA</option>
+    <option>Master of Arts (MA)</option>
+    <option>Master of Commerce (MCom)</option>
+    <option>Master of Education (MEd)</option>
+    <option>Master of Science (MSc)</option>
+    <option>Media Studies Degree</option>
+    <option>Medical Laboratory Technology Diploma</option>
+    <option>Networking Diploma</option>
+    <option>Nursing Diploma</option>
+    <option>Nutrition Diploma</option>
+    <option>PhD</option>
+    <option>Pharmacy Diploma</option>
+    <option>Pharmacy Degree (BPharm)</option>
+    <option>Photography Diploma</option>
+    <option>Physics Degree</option>
+    <option>Political Science Degree</option>
+    <option>Psychology Degree</option>
+    <option>Science High School</option>
+    <option>Software Development Diploma</option>
+    <option>Social Work Degree</option>
+    <option>Statistics Degree</option>
+    <option>Teaching Diploma</option>
+    <option>Tourism & Travel Management Diploma</option>
+    <option>Travel & Tourism Diploma</option>
+    <option>Veterinary Science Degree</option>
+    <option>Web Development Diploma</option>
+    <option>Others</option>
+</select>
+            </select>
 
-			<!-- Phone + OTP -->
-			<div class="row">
-				<div class="col-md-6">
-					<input type="tel" id="phone" placeholder="Contact Number *" required>
-				</div>
-				<div class="col-md-6">
-					<button type="button" class="site-btn w-100" onclick="sendPhoneOTP()">Send Phone OTP</button>
-				</div>
-			</div>
+            <!-- Role Selection -->
+            <select id="role" required>
+                <option value="">Select Your Role *</option>
+                <option>Parent</option>
+                <option>Tutor</option>
+                <option>Student</option>
+            </select>
 
-			<input type="text" placeholder="Enter Phone OTP *" required>
+            <!-- Captcha -->
+            <div class="row align-items-center mb-3">
+                <div class="col-md-4">
+                    <div id="captcha"></div>
+                </div>
+                <div class="col-md-4 captcha-controls">
+                    <button type="button" class="site-btn" onclick="generateCaptcha()">Refresh Captcha</button>
+                    <span class="audio-btn" onclick="playCaptchaAudio()">🔊 Audio</span>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" id="captchaInput" placeholder="Enter Captcha *" required>
+                </div>
+            </div>
 
-			<!-- Course -->
-			<select id="course" onchange="toggleOtherCourse()" required>
-				<option value="">Select Course / Training *</option>
-				<option>Full Stack Development</option>
-				<option>Data Science</option>
-				<option>AI & Machine Learning</option>
-				<option>Cyber Security</option>
-				<option>Cloud Computing</option>
-				<option>Digital Marketing</option>
-				<option>Accounts & Finance</option>
-				<option>TNPSC</option>
-				<option>UPSC</option>
-				<option>Class 9–10</option>
-				<option value="Other">Others</option>
-			</select>
-
-			<textarea id="otherCourse" placeholder="If Others, please specify" style="display:none;"></textarea>
-
-			<!-- Captcha -->
-			<div class="row">
-				<div class="col-md-4">
-					<div id="captcha" style="font-weight:600; font-size:18px; letter-spacing:3px;"></div>
-				</div>
-				<div class="col-md-4">
-					<button type="button" class="site-btn w-100" onclick="generateCaptcha()">Refresh Captcha</button>
-				</div>
-				<div class="col-md-4">
-					<input type="text" id="captchaInput" placeholder="Enter Captcha *" required>
-				</div>
-			</div>
-
-			<button class="site-btn mt-4" type="submit">Create Account</button>
-
-		</form>
-	</div>
+            <button class="site-btn mt-4" type="submit">Create Account</button>
+        </form>
+    </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer-section spad pb-0">
-	<div class="footer-bottom">
-		<div class="footer-warp text-center">
-			<div class="copyright">
-				© 2026 AvenMinds. All rights reserved.
-			</div>
-		</div>
-	</div>
+    <div class="footer-bottom">
+        <div class="footer-warp text-center">
+            <div class="copyright">
+                © 2026 AvenMinds. All rights reserved.
+            </div>
+        </div>
+    </div>
 </footer>
 
+<!-- Scripts -->
 <script src="js/jquery-3.2.1.min.js"></script>
 
 <script>
-	window.onload = function () {
-		const name = localStorage.getItem("userName");
-		const email = localStorage.getItem("userEmail");
-		if (name) document.getElementById("fname").value = name;
-		if (email) document.getElementById("email").value = email;
-		generateCaptcha();
-	};
+    let currentCaptcha = '';
 
-	function sendEmailOTP() {
-		alert("Email OTP API will be connected here");
-	}
+    window.onload = function() {
+        generateCaptcha();
+    };
 
-	function sendPhoneOTP() {
-		alert("Phone OTP API will be connected here");
-	}
-
-	function toggleOtherCourse() {
-		document.getElementById("otherCourse").style.display =
-			document.getElementById("course").value === "Other" ? "block" : "none";
-	}
-
-	function generateCaptcha() {
-		const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-		let c = "";
-		for (let i = 0; i < 6; i++) c += chars[Math.floor(Math.random() * chars.length)];
-		document.getElementById("captcha").innerText = c;
-	}
-
-	function validateForm() {
-		if (document.getElementById("captchaInput").value !== document.getElementById("captcha").innerText) {
-			alert("Captcha incorrect");
-			generateCaptcha();
-			return false;
-		}
-		return true;
-	}
-window.onload = function() {
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const email = params.get("email");
-
-    if (name) {
-        document.querySelector("input[placeholder='Your Name']").value = name;
+    function sendEmailOTP() {
+        alert("Email OTP will be sent via API");
     }
 
-    if (email) {
-        document.querySelector("input[placeholder='Your E-mail']").value = email;
+    function sendPhoneOTP() {
+        alert("Phone OTP will be sent via API");
     }
-};
+
+    function generateCaptcha() {
+        const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+        let c = "";
+        for (let i=0; i<6; i++) {
+            c += chars[Math.floor(Math.random()*chars.length)];
+        }
+        currentCaptcha = c;
+        document.getElementById("captcha").innerText = c;
+    }
+
+    function playCaptchaAudio() {
+        const utterance = new SpeechSynthesisUtterance(currentCaptcha.split('').join(' '));
+        speechSynthesis.speak(utterance);
+    }
+
+    function validateForm() {
+        if (document.getElementById("captchaInput").value.toUpperCase() !== currentCaptcha) {
+            alert("Captcha incorrect");
+            generateCaptcha();
+            return false;
+        }
+        // Optional: Add email & phone OTP verification here
+        alert("All fields validated. Redirecting to dashboard...");
+        window.location.href = "dashboard.html";
+        return false; // Prevent default form submit
+    }
 </script>
 
 </body>
