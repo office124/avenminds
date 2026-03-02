@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard - AvenMinds</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+  /* ===== AvenMinds Theme ===== */
+
+body {
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    background-color: #f9f9f9;
+}
+
+h1, h2, h3 {
+    font-family: "Bodoni MT", serif;
+    color: #D82A4E;
+}
+
+.small-text {
+    font-family: "Arabic Typesetting";
+    font-size: 18px;
+}
+
+/* Layout */
+
+.dashboard-container {
+    display: flex;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 250px;
+    background: #111;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: #D82A4E;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar ul li:hover {
+    background: #D82A4E;
+}
+
+/* Main Content */
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* Cards */
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+    <div class="sidebar">
+        <h2>AvenMinds</h2>
+        <ul>
+            <li>My Courses</li>
+            <li>Attendance</li>
+            <li>Assignments</li>
+            <li>Performance</li>
+            <li>Fee Status</li>
+            <li>Profile</li>
+            <li onclick="logout()">Logout</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Welcome, Student</h1>
+        <p class="small-text">Empowering Your Academic Growth</p>
+
+        <div class="card">
+            <h3>Enrolled Courses</h3>
+            <p id="studentCourses">Loading...</p>
+        </div>
+
+        <div class="card">
+            <h3>Attendance</h3>
+            <p id="attendanceData">Loading...</p>
+        </div>
+
+        <div class="card">
+            <h3>Performance</h3>
+            <p id="performanceData">Loading...</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
