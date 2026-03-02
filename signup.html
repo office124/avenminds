@@ -21,6 +21,27 @@
             background-color: #f8f9fa;
         }
 
+        .signup-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .signup-heading h2 {
+            font-weight: 800;
+            font-size: 36px;
+            color: #d82a4e; /* theme color */
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .signup-heading p {
+            font-size: 18px;
+            color: #555;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
         .signup-form {
             background-color: #ffffff; /* white form */
             border: 2px solid #d82a4e; /* theme color border */
@@ -29,19 +50,6 @@
             max-width: 750px;
             margin: auto;
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
-        }
-
-        .signup-form h2 {
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #d82a4e; /* theme color heading */
-        }
-
-        .signup-form p {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #555;
         }
 
         .signup-form input, .signup-form select, .signup-form textarea {
@@ -85,22 +93,10 @@
             align-items: center;
         }
 
-        .captcha-controls button, .audio-btn {
+        .captcha-controls button {
             flex: 1;
             padding: 10px;
             font-size: 14px;
-        }
-
-        .audio-btn {
-            background-color: #d82a4e;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .audio-btn:hover {
-            background-color: #155a8a;
         }
 
     </style>
@@ -131,9 +127,14 @@
 <!-- Signup Section -->
 <section class="signup-section spad">
     <div class="container">
+
+        <!-- Modern heading above the form -->
+        <div class="signup-heading">
+            <h2>Unlock Your Learning Journey</h2>
+            <p>Sign up today to explore tailored courses, personalized learning paths, and a world of growth opportunities.</p>
+        </div>
+
         <form class="signup-form" onsubmit="return validateForm()">
-            <h2>Create Your AvenMinds Account</h2>
-            <p>Register once. Access courses based on your registration & selected plan.</p>
 
             <!-- Name -->
             <div class="row">
@@ -180,14 +181,13 @@
                 <option>Student</option>
             </select>
 
-            <!-- Captcha -->
+            <!-- Captcha aligned without audio -->
             <div class="row align-items-center mb-3">
                 <div class="col-md-4">
                     <div id="captcha"></div>
                 </div>
                 <div class="col-md-4 captcha-controls">
                     <button type="button" class="site-btn" onclick="generateCaptcha()">Refresh Captcha</button>
-                    <div class="audio-btn" onclick="playCaptchaAudio()">🔊 Audio</div>
                 </div>
                 <div class="col-md-4">
                     <input type="text" id="captchaInput" placeholder="Enter Captcha *" required>
@@ -266,11 +266,6 @@
         }
         currentCaptcha = c;
         document.getElementById("captcha").innerText = c;
-    }
-
-    function playCaptchaAudio() {
-        const utterance = new SpeechSynthesisUtterance(currentCaptcha.split('').join(' '));
-        speechSynthesis.speak(utterance);
     }
 
     function validateForm() {
