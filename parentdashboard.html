@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Parent Dashboard - AvenMinds</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:"Times New Roman", serif;
+    background:#f4f6f9;
+}
+
+h1,h2,h3{
+    font-family:"Bodoni MT", serif;
+    color:#D82A4E;
+}
+
+.small-text{
+    font-family:"Arabic Typesetting";
+    font-size:20px;
+}
+
+.dashboard{
+    display:flex;
+    height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#111;
+    color:white;
+    padding:25px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.sidebar ul li{
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.sidebar ul li:hover{
+    background:#D82A4E;
+}
+
+.main{
+    flex:1;
+    padding:40px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:25px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.05);
+}
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.profile-box{
+    background:#D82A4E;
+    color:white;
+    padding:10px 20px;
+    border-radius:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<div class="sidebar">
+    <h2>AvenMinds</h2>
+    <ul>
+        <li>Dashboard</li>
+        <li>Child Details</li>
+        <li>Attendance</li>
+        <li>Performance</li>
+        <li>Fee Status</li>
+        <li>Communication</li>
+        <li>Profile</li>
+        <li>Logout</li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <div class="top-bar">
+        <div>
+            <h1>Welcome, Parent</h1>
+            <div class="small-text">Tracking Your Child’s Academic Journey</div>
+        </div>
+        <div class="profile-box">Parent Panel</div>
+    </div>
+
+    <div class="card">
+        <h3>Child Academic Report</h3>
+        <p>Overall Score: 90%</p>
+    </div>
+
+    <div class="card">
+        <h3>Attendance Overview</h3>
+        <p>Attendance: 95%</p>
+    </div>
+
+    <div class="card">
+        <h3>Fee Status</h3>
+        <p>Status: Paid</p>
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>
