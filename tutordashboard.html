@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tutor Dashboard - AvenMinds</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:"Times New Roman", serif;
+    background:#f4f6f9;
+}
+
+h1,h2,h3{
+    font-family:"Bodoni MT", serif;
+    color:#D82A4E;
+}
+
+.small-text{
+    font-family:"Arabic Typesetting";
+    font-size:20px;
+}
+
+.dashboard{
+    display:flex;
+    height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#111;
+    color:white;
+    padding:25px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.sidebar ul li{
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.sidebar ul li:hover{
+    background:#D82A4E;
+}
+
+.main{
+    flex:1;
+    padding:40px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:25px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.05);
+}
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.profile-box{
+    background:#D82A4E;
+    color:white;
+    padding:10px 20px;
+    border-radius:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<div class="sidebar">
+    <h2>AvenMinds</h2>
+    <ul>
+        <li>Dashboard</li>
+        <li>My Classes</li>
+        <li>Student List</li>
+        <li>Upload Assignments</li>
+        <li>Attendance Marking</li>
+        <li>Announcements</li>
+        <li>Profile</li>
+        <li>Logout</li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <div class="top-bar">
+        <div>
+            <h1>Welcome, Tutor</h1>
+            <div class="small-text">Shaping Future Leaders</div>
+        </div>
+        <div class="profile-box">Tutor Panel</div>
+    </div>
+
+    <div class="card">
+        <h3>Assigned Classes</h3>
+        <p>Class 10 Mathematics</p>
+        <p>Banking Exam Coaching</p>
+    </div>
+
+    <div class="card">
+        <h3>Student Performance Overview</h3>
+        <p>Average Class Score: 84%</p>
+    </div>
+
+    <div class="card">
+        <h3>Upcoming Sessions</h3>
+        <p>Monday - 10 AM</p>
+        <p>Wednesday - 4 PM</p>
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>
